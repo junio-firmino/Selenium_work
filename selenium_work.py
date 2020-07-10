@@ -25,9 +25,9 @@ class Anp:
         login= self.brower.find_elements(By.XPATH,'//*[@id="txtEmail"]')
         print(len(login))
         #login = WebDriverWait(self.brower,20).until(EC.presence_of_element_located((By.ID,'txtEmail')))
-        # login.send_keys('junio_firmino@petrobras.com.br')
+        # login.send_keys('')
         # login_senha = self.brower.find_element_by_id("pwdSenha")
-        # login_senha.send_keys('j18m12jp29')
+        # login_senha.send_keys('')
         # sleep(1)
         # comit = self.brower.find_element_by_css_selector('#sbmLogin')
 
