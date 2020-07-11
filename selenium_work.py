@@ -9,29 +9,37 @@ class Anp:
         self.brower = webdriver.Firefox(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\geckodriver')
 
     def abrir_site(self):
-        self.brower.get("http://www.anp.gov.br/")
+        self.brower.get("https://github.com/")
         sleep(1)
 
     def navegar(self):
         self.abrir_site()
-        pro_sei = self.brower.find_element_by_link_text('Processo Eletrônico (SEI)')
-        pro_sei.click()
-        acesso = self.brower.find_element_by_css_selector('.item-page > p:nth-child(18) > a:nth-child(1) > img:nth-child(1)')
-        acesso.click()
+        self.brower.maximize_window()
+        self.brower.find_element_by_xpath("/html/body/div[1]/header/div/div[2]/div[2]/a[1]").click()
+        self.brower.implicitly_wait(5)
         self.logins()
+        self.brower.implicitly_wait(5)
+        self.brower.find_element_by_css_selector('.js-feature-preview-indicator-container > summary:nth-child(1)').click()
+        self.brower.implicitly_wait(5)
+        self.brower.find_element_by_xpath('/html/body/div[1]/header/div[7]/details/details-menu/form/button').click()
+        sleep(5)
+        self.brower.close()
 
     def logins(self):
+        self.brower.find_element_by_xpath("//*[@id='login_field']").send_keys('')
+        self.brower.implicitly_wait(5)
+        self.brower.find_element_by_xpath("//*[@id='password']").send_keys('')
+        self.brower.implicitly_wait(5)
+        self.brower.find_element_by_name('commit').click()
 
-        login= self.brower.find_elements(By.XPATH,'//*[@id="txtEmail"]')
-        print(len(login))
+
         #login = WebDriverWait(self.brower,20).until(EC.presence_of_element_located((By.ID,'txtEmail')))
-        # login.send_keys('')
+        # login.send_keys('junio_firmino@petrobras.com.br')
         # login_senha = self.brower.find_element_by_id("pwdSenha")
-        # login_senha.send_keys('')
+        # login_senha.send_keys('j18m12jp29')
         # sleep(1)
         # comit = self.brower.find_element_by_css_selector('#sbmLogin')
 
 x = Anp()
 x.navegar()
-    #brower.close()
-0
+
