@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class Anp:
+class Github:
     def __init__(self):
         self.brower = webdriver.Firefox(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\geckodriver')
 
@@ -33,6 +33,6 @@ class Anp:
         self.brower.find_element_by_name('commit').click()
 
        
-x = Anp()
+x = Github()
 x.navegar()
 
