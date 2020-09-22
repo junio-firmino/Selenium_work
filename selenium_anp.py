@@ -35,9 +35,9 @@ class Anp:
     #  self.brower.close()
 
     def logins(self):
-        self.brower.find_element_by_xpath("//*[@id='login_field']").send_keys('jrf.petro@gmail.com')
+        self.brower.find_element_by_xpath("//*[@id='login_field']").send_keys('jr@gmail.com')
         self.brower.implicitly_wait(5)
-        self.brower.find_element_by_xpath("//*[@id='password']").send_keys('*j182928')
+        self.brower.find_element_by_xpath("//*[@id='password']").send_keys('')
         self.brower.implicitly_wait(5)
         self.brower.find_element_by_name('commit').click()
 
