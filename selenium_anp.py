@@ -12,6 +12,7 @@ class Anp:
         self.brower = webdriver.Chrome(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\chromedriver')
         self.site = site
 
+
 class Abrir_site(Anp):
     def __init__(self,site):
         super().__init__(site)
@@ -30,18 +31,15 @@ class Navegar(Abrir_site):
         for handle in new_page:
             self.brower.switch_to.window(handle)
 
+    def login (self, log, senha):
         self.brower.implicitly_wait(1)
-        self.brower.find_element_by_xpath('//*[@id="txtEmail"]').send_keys('')
-        self.brower.find_element_by_xpath('//*[@id="pwdSenha"]').send_keys('')
+        self.brower.find_element_by_xpath('//*[@id="txtEmail"]').send_keys(log)
+        self.brower.find_element_by_xpath('//*[@id="pwdSenha"]').send_keys(senha)
         self.brower.find_element_by_xpath('//*[@id="sbmLogin"]').click()
         self.brower.find_element_by_xpath('//*[@id="lnkSairSistema"]/img').click()
         self.brower.quit()
 
-class Logins(Anp):
-    def __init__(self,site):
-        super().__init__(site)
-
 
 if __name__ == '__main__':
    x=Navegar('http://www.anp.gov.br/')
-   #y=Logins('http://www.anp.gov.br/')
+   x.login()
