@@ -63,4 +63,4 @@ class Navegar_tela_anp(Anp):
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('junio_firmino@petrobras.com.br','j18m12jp29')
+    x.login()
