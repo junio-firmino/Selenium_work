@@ -48,6 +48,7 @@ class Navegar(Abrir_site):
         acao.move_to_element(peticionamento).perform()
         self.brower.implicitly_wait(1)
         acao.move_to_element(processo_novo).click().perform()
+        self.brower.find_element_by_xpath('//*[@id="tblTipoProcedimento"]/tbody/tr[40]/td/a').click()
 
 
 class Navegar_tela_anp(Anp):
@@ -62,4 +63,4 @@ class Navegar_tela_anp(Anp):
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('')
+    x.login('junio_firmino@petrobras.com.br','j18m12jp29')
