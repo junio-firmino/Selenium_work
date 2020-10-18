@@ -30,6 +30,7 @@ class Navegar(Abrir_site):
     def __init__(self,site):
         super().__init__(site)
         self.brower.maximize_window()
+        self.brower.implicitly_wait(1)
         self.brower.find_element_by_link_text('Processo Eletrônico (SEI)').click()
         self.brower.find_element_by_xpath('//*[@id="content-section"]/div[1]/div[1]/p[10]/a/img').click()
         self.brower.implicitly_wait(5)
@@ -47,17 +48,27 @@ class Navegar(Abrir_site):
         acao = ActionChains(self.brower)
         peticionamento = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/a')
         processo_novo = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/ul/li[1]/a')
-        self.brower.implicitly_wait(1)
+        #sleep(2)
+        #self.brower.implicitly_wait(2)
         acao.move_to_element(peticionamento).perform()
-        self.brower.implicitly_wait(1)
+        self.brower.implicitly_wait(2)
         acao.move_to_element(processo_novo).click().perform()
         self.brower.find_element_by_xpath('//*[@id="tblTipoProcedimento"]/tbody/tr[40]/td/a').click()
 
     def preencher_form(self):
-        self.navegar_tela_anp()
+        self.brower.find_element_by_xpath('//*[@id="txtEspecificacao"]').send_keys('contrato teste')
+        self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').click()
+        self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').is_selected()
+        self.brower.find_element_by_xpath('//*[@id="txtCNPJ"]').send_keys('33000167000101')
+        self.brower.find_element_by_xpath('//*[@id="btValidarCPFCNPJ"]').click()
+        sleep(3)
+        self.brower.find_element_by_xpath('//*[@id="btAdicionarInteressado"]').click()
+
+
 
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
     x.login('')
     x.navegar_tela_anp()
+    x.preencher_form()
