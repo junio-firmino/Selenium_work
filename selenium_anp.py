@@ -49,7 +49,7 @@ class Navegar(Abrir_site):
         peticionamento = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/a')
         processo_novo = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/ul/li[1]/a')
         #sleep(2)
-        #self.brower.implicitly_wait(2)
+        self.brower.implicitly_wait(2)
         acao.move_to_element(peticionamento).perform()
         self.brower.implicitly_wait(2)
         acao.move_to_element(processo_novo).click().perform()
@@ -59,10 +59,12 @@ class Navegar(Abrir_site):
         self.brower.find_element_by_xpath('//*[@id="txtEspecificacao"]').send_keys('contrato teste')
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').click()
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').is_selected()
-        self.brower.find_element_by_xpath('//*[@id="txtCNPJ"]').send_keys('33000167000101')
-        self.brower.find_element_by_xpath('//*[@id="btValidarCPFCNPJ"]').click()
-        sleep(3)
-        self.brower.find_element_by_xpath('//*[@id="btAdicionarInteressado"]').click()
+        cnpj = [33000167001111,22899533002222]
+        for cnpjs in cnpj:
+            self.brower.find_element_by_xpath('//*[@id="txtCNPJ"]').send_keys(cnpjs)
+            self.brower.find_element_by_xpath('//*[@id="btValidarCPFCNPJ"]').click()
+            sleep(3)
+            self.brower.find_element_by_xpath('//*[@id="btAdicionarInteressado"]').click()
 
 
 
