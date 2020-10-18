@@ -74,7 +74,7 @@ class Navegar(Abrir_site):
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('junio_firmino@petrobras.com.br', 'j18m12jp29')
+    x.login('')
     x.navegar_tela_anp()
     x.preencher_form()
     x.escolher_arq()
