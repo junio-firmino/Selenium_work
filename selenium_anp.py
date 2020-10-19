@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 
 
 class Anp:
@@ -48,7 +49,7 @@ class Navegar(Abrir_site):
         acao = ActionChains(self.brower)
         peticionamento = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/a')
         processo_novo = self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[4]/ul/li[1]/a')
-        #sleep(2)
+        sleep(3)
         #self.brower.implicitly_wait(3)
         acao.move_to_element(peticionamento).perform()
         self.brower.implicitly_wait(2)
@@ -66,10 +67,23 @@ class Navegar(Abrir_site):
             sleep(3)
             self.brower.find_element_by_xpath('//*[@id="btAdicionarInteressado"]').click()
 
-    def escolher_arq(self):
-        self.brower.switch_to.frame(self.brower.find_element_by_xpath('//*[@id="fileArquivoPrincipal"]').send_keys('C://Users/Jrfirmino Planejados/PycharmProjects/Aprendizado/hello.txt'))
-        #self.brower.find_element_by_xpath('//*[@id="fileArquivoPrincipal"]').send_keys('C://Users/Jrfirmino Planejados/PycharmProjects/Aprendizado/hello.txt')
+    def escolher_frame1(self):
+        path = self.brower.find_element_by_xpath('//*[@id="fileArquivoPrincipal"]')
+        self.brower.switch_to.frame(path.send_keys('C://Users/Jrfirmino Planejados/PycharmProjects/Aprendizado/hello.txt'))
+        self.brower.find_element_by_xpath('//*[@id="complementoPrincipal"]').send_keys('Carta externas')
+        choice_options = self.brower.find_element_by_xpath('//*[@id="nivelAcesso1"]')
+        choice_options_elem = Select(choice_options)
+        choice_options_elem.select_by_visible_text('Restrito')
+        sleep(1)
+        choice_options_2 = self.brower.find_element_by_xpath('//*[@id="hipoteseLegal1"]')
+        choice_options_elem_2 = Select(choice_options_2)
+        choice_options_elem_2.select_by_value('19')
+        self.brower.find_element_by_xpath('//*[@id="rdNato1_1"]').click()
+        self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').is_selected()
+        self.brower.find_element_by_xpath('//*[@id="camposDigitalizadoPrincipalBotao"]/input').click()
 
+    def escolher_frame1_contract(self):
+        path_2 = self.brower.find_element_by_xpath('//*[@id="fileArquivoComplementar"]')
 
 
 if __name__ == '__main__':
@@ -77,4 +91,4 @@ if __name__ == '__main__':
     x.login('')
     x.navegar_tela_anp()
     x.preencher_form()
-    x.escolher_arq()
+    x.escolher_frame1()
