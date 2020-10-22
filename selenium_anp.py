@@ -104,9 +104,16 @@ class Navegar(Abrir_site):
         print('Sucesso!!!')
 
 
+class download_receipt(Anp):
+    def __init__(self):
+        super().__init__()
+        self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
+
+
+
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('')
+    x.login()
     x.navegar_tela_anp()
     x.preencher_form()
     x.escolher_frame1()
