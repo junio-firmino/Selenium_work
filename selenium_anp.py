@@ -106,14 +106,17 @@ class Navegar(Abrir_site):
 
 class download_receipt(Anp):
     def __init__(self):
-        super().__init__()
+        #super().__init__()
+        new_page_final_1 = self.brower.window_handles
+        for handle_final_1 in new_page_final_1:
+            self.brower.switch_to.window(handle_final_1)
         self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
-        self.brower.get('https://sei.anp.gov.br/sei/controlador_externo.php?acao=md_pet_usu_ext_iniciar&id_orgao_acesso_externo=0&id_tipo_procedimento=4&infra_hash=86014fd17f9cdc733c19bcea6269b570')
+        #self.brower.get('https://sei.anp.gov.br/sei/controlador_externo.php?acao=md_pet_usu_ext_iniciar&id_orgao_acesso_externo=0&id_tipo_procedimento=4&infra_hash=86014fd17f9cdc733c19bcea6269b570')
 
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('')
+    x.login('junio_firmino@petrobras.com.br','j18m12jp29')
     #x.navegar_tela_anp()
     #x.preencher_form()
     #x.escolher_frame1()
