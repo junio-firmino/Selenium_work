@@ -5,6 +5,7 @@ from time import sleep
 from selenium.webdriver.support.ui import Select
 
 
+
 class Anp:
     def __init__(self):
         self.brower = webdriver.Chrome(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\chromedriver')
@@ -104,23 +105,22 @@ class Navegar(Abrir_site):
         print('Sucesso!!!')
 
 
-class download_receipt(Anp):
-    def __init__(self):
-        #super().__init__()
-        new_page_final_1 = self.brower.window_handles
-        for handle_final_1 in new_page_final_1:
-            self.brower.switch_to.window(handle_final_1)
-        self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
-        #self.brower.get('https://sei.anp.gov.br/sei/controlador_externo.php?acao=md_pet_usu_ext_iniciar&id_orgao_acesso_externo=0&id_tipo_procedimento=4&infra_hash=86014fd17f9cdc733c19bcea6269b570')
+# class Download_receipt():
+#     def __init__(self,log, senha,site):
+#         #brower = webdriver.Chrome(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\chromedriver')
+#         Navegar(site).login(log,senha)
+#         sleep(2)
+#         Anp()
+#         self.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
 
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login('junio_firmino@petrobras.com.br','j18m12jp29')
-    #x.navegar_tela_anp()
-    #x.preencher_form()
-    #x.escolher_frame1()
-    #x.escolher_frame1_contract()
-    #x.final_form()
-    y = download_receipt()
+    x.login()
+    x.navegar_tela_anp()
+    x.preencher_form()
+    x.escolher_frame1()
+    x.escolher_frame1_contract()
+    x.final_form()
+    #y = Download_receipt()
 
