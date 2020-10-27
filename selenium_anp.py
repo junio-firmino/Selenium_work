@@ -104,22 +104,17 @@ class Navegar(Abrir_site):
         self.brower.find_element_by_xpath('//*[@id="pwdsenhaSEI"]').send_keys(self.senha)
         print('Sucesso!!!')
 
-class Download_receipt(Navegar):
-    def __init__(self,site):
-        #brower = webdriver.Chrome(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\chromedriver')
-        Navegar(site).login()
-        sleep(5)
-        self.brower_1 = webdriver.Chrome(executable_path='C:\\Users\\Jrfirmino Planejados\\Downloads\\chromedriver')
-        self.brower_1.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
+    def download_receipt(self):
+        self.brower.find_element_by_xpath('//*[@id="main-menu"]/li[5]/a').click()
 
 
 if __name__ == '__main__':
-    # x= Navegar('http://www.anp.gov.br/')
-    # x.login('junio_firmino@petrobras.com.br','j18m12jp29')
+    x= Navegar('http://www.anp.gov.br/')
+    x.login()
     # x.navegar_tela_anp()
     # x.preencher_form()
     # x.escolher_frame1()
     # x.escolher_frame1_contract()
     # x.final_form()
-    y = Download_receipt('http://www.anp.gov.br/')
+    x.download_receipt()
 
