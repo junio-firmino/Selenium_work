@@ -48,6 +48,7 @@ class Navegar(Abrir_site):
         self.brower.find_element_by_xpath('//*[@id="tblTipoProcedimento"]/tbody/tr[40]/td/a').click()
 
     def preencher_form(self):
+        self.wb = load_workbook(filename=)
         self.brower.find_element_by_xpath('//*[@id="txtEspecificacao"]').send_keys('2 Aditivo 4002079191 (AIR-BP Petro Bahia)')  #Primeira descrição
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').click()
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').is_selected()
@@ -110,7 +111,7 @@ class Navegar(Abrir_site):
 
 if __name__ == '__main__':
     x= Navegar('http://www.anp.gov.br/')
-    x.login()
+    x.login('')
     # x.navegar_tela_anp()
     # x.preencher_form()
     # x.escolher_frame1()
