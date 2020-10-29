@@ -49,7 +49,7 @@ class Navegar(Abrir_site):
 
     def preencher_form(self):
         self.wb = load_workbook(filename=)
-        self.brower.find_element_by_xpath('//*[@id="txtEspecificacao"]').send_keys('2 Aditivo 4002079191 (AIR-BP Petro Bahia)')  #Primeira descrição
+        self.brower.find_element_by_xpath('//*[@id="txtEspecificacao"]').send_keys(Descrição)  #Primeira descrição
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').click()
         self.brower.find_element_by_xpath('//*[@id="optTipoPessoaJuridica"]').is_selected()
         cnpj = [33000167000101,22899533000190]
@@ -61,8 +61,8 @@ class Navegar(Abrir_site):
 
     def escolher_frame1(self):
         path = self.brower.find_element_by_xpath('//*[@id="fileArquivoPrincipal"]')
-        self.brower.switch_to.frame(path.send_keys('C://Users//Jrfirmino Planejados//PycharmProjects//Aprendizado//teste_anp//Carta Externa Air BPPetrobahia.pdf'))
-        self.brower.find_element_by_xpath('//*[@id="complementoPrincipal"]').send_keys('Carta Externa Air BPPetrobahia')
+        self.brower.switch_to.frame(path.send_keys(caminho do arquivo))
+        self.brower.find_element_by_xpath('//*[@id="complementoPrincipal"]').send_keys(descrição contrato)
         choice_options = self.brower.find_element_by_xpath('//*[@id="nivelAcesso1"]')
         choice_options_elem = Select(choice_options)
         choice_options_elem.select_by_visible_text('Restrito')
